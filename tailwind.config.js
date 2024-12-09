@@ -3,11 +3,16 @@ export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
-      colors:{
-      'peach-cream': '#FFF8ED',
-      'i-blue': '#1E2875',
+      colors: {
+        'peach-cream': '#FFF8ED',
+        'i-blue': '#1E2875',
+      },
+      backdropBlur: {
+        xs: '2px',
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

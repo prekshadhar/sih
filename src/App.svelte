@@ -28,8 +28,8 @@
 		</div>
 	  </Navbar>
 	{:else}
-	  <nav class="bg-blue-950 text-peach-cream h-36 ml-2 mr-2 w-full">
-		<div class="container mx-auto flex justify-between items-center">
+	  <!-- <nav class="bg-blue-950 text-peach-cream h-24 ml-2 mr-2 w-full pr-4">
+		<div class="container flex justify-between items-center">
 		  <img src="\logom.png" alt="Logo" class="h-24 pt-4 pl-4" />
 		  <Link to="/" class="text-2xl font-bold flex items-center">
 			Pragati
@@ -40,7 +40,7 @@
 			<a href="#contact" class="hover:underline">Contact Us</a>
 		  </div>
 		</div>
-	  </nav>
+	  </nav>-->
 	  <main class="container ml-2 mr-2 w-full">
 		<Route path="*" component={Home} />
 	  </main>

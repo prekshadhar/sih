@@ -5,9 +5,15 @@
   function toggleNavbar() {
     isOpen = !isOpen;
   }
+  function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 </script>
 
-<div class="flex h-screen overflow-hidden ml-2 mr-2 w-full">
+<div class="flex h-screen overflow-hidden ml-4 mr-4 w-full pt-24">
   <!-- Sidebar -->
   <aside
     class="bg-[#1E2875] text-white h-screen transition-all duration-300 overflow-x-visible overflow-y-auto relative items-center pt-4"
@@ -58,27 +64,18 @@
 
   <div class="flex-1 flex flex-col overflow-hidden">
     <!-- Top Navigation Bar -->
-    <header class="bg-[#1E2875] text-white h-24 flex items-center justify-between px-6 shadow-md pt-4">
-      <div class="flex items-center gap-2">
-        <img src="/path-to-your-logo.svg" alt="Logo" class="w-8 h-8" />
-        <h1 class="text-2xl font-bold">Welcome Back!</h1>
+    <nav class="bg-[#1E2875] text-white fixed top-0 left-4 right-4 z-50 py-2 pr-8">
+      <div class="container mx-auto flex justify-between items-center px-4">
+        <img src="\logom.png" alt="Logo" class="h-24 pt-4 pl-4" />
+        <a href="#auth" class="text-2xl font-bold">Pragati</a>
+        <div class="space-x-8">
+          <a href="#auth" class="hover:text-blue-200 transition-colors">Home</a>
+          <a href="#services" class="hover:text-blue-200 transition-colors">Services</a>
+          <a href="#about" class="hover:text-blue-200 transition-colors">About Us</a>
+          <a href="#contact" class="hover:text-blue-200 transition-colors">Contact Us</a>
+        </div>
       </div>
-      
-      <div class="flex items-center gap-8">
-        <a href="/service" class="flex items-center gap-2 hover:text-blue-200 transition-colors">
-          <img src="/service-icon.svg" alt="" class="w-6 h-6" />
-          <span>Service</span>
-        </a>
-        <a href="/contact" class="flex items-center gap-2 hover:text-blue-200 transition-colors">
-          <img src="/mail-icon.svg" alt="" class="w-6 h-6" />
-          <span>Contact Us</span>
-        </a>
-        <a href="/about" class="flex items-center gap-2 hover:text-blue-200 transition-colors">
-          <img src="/about-icon.svg" alt="" class="w-6 h-6" />
-          <span>About Us</span>
-        </a>
-      </div>
-    </header>
+    </nav>
 
     <!-- Main Content -->
     <main class="flex-1 overflow-x-hidden overflow-y-auto bg-[#FDF8EE]">
