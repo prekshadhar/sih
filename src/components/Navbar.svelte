@@ -67,12 +67,14 @@
     <nav class="bg-[#1E2875] text-white fixed top-0 left-4 right-4 z-50 py-2 pr-8">
       <div class="container mx-auto flex justify-between items-center px-4">
         <img src="\logom.png" alt="Logo" class="h-24 pt-4 pl-4" />
-        <a href="#auth" class="text-2xl font-bold">Pragati</a>
+        <div class="flex flex-col items-center">
+          <h1 class="text-3xl font-bold">Welcome Back!</h1>
+        </div>
         <div class="space-x-8">
-          <a href="#auth" class="hover:text-blue-200 transition-colors">Home</a>
-          <a href="#services" class="hover:text-blue-200 transition-colors">Services</a>
-          <a href="#about" class="hover:text-blue-200 transition-colors">About Us</a>
-          <a href="#contact" class="hover:text-blue-200 transition-colors">Contact Us</a>
+          <a href="/" class="hover:text-blue-200 transition-colors">Home</a>
+          <a href="/" class="hover:text-blue-200 transition-colors">Services</a>
+          <a href="/" class="hover:text-blue-200 transition-colors">About Us</a>
+          <a href="/" class="hover:text-blue-200 transition-colors">Contact Us</a>
         </div>
       </div>
     </nav>
@@ -90,6 +92,7 @@
   :global(body) {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
   }
 
   aside {

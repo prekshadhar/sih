@@ -1,6 +1,8 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
 html, body {
 	position: relative;
-	width: 100%;
+	width: 99%;
 	height: 100%;
 }
 
@@ -13,7 +15,7 @@ body {
 }
 
 a {
-	color: rgb(0,100,200);
+	color: #203162;
 	text-decoration: none;
 }
 
@@ -22,7 +24,7 @@ a:hover {
 }
 
 a:visited {
-	color: rgb(0,80,160);
+	color: #FFF8ED;
 }
 
 label {
@@ -36,7 +38,7 @@ input, button, select, textarea {
 	padding: 0.4em;
 	margin: 0 0 0.5em 0;
 	box-sizing: border-box;
-	border: 1px solid #ccc;
+	border: 1px solid #203162;
 	border-radius: 2px;
 }
 

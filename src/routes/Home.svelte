@@ -51,10 +51,13 @@
 </script>
 
 <div class="ml-2 mr-2 w-full">
-  <nav class="bg-[#1E2875] text-white fixed top-0 left-4 right-4 z-50 py-2 pr-8">
+  <nav class="bg-[#1E2875] text-peach-cream fixed top-0 left-4 right-4 z-50 py-2 pr-8">
     <div class="container mx-auto flex justify-between items-center px-4">
       <img src="\logom.png" alt="Logo" class="h-24 pt-4 pl-4" />
-      <a href="#auth" class="text-2xl font-bold">Pragati</a>
+      <div class="flex flex-col items-center">
+        <h1 class="text-3xl italic font-bold">Nirdeshika</h1>
+        <p class="text-sm italic pl-48 pt-21">Your path, your journey – free from judgment.</p>
+      </div>
       <div class="space-x-8">
         <a href="#auth" class="hover:text-blue-200 transition-colors">Home</a>
         <a href="#services" class="hover:text-blue-200 transition-colors">Services</a>

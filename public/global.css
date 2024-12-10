@@ -4,6 +4,8 @@ html, body {
 	position: relative;
 	width: 99%;
 	height: 100%;
+	scroll-behavior: smooth;
+	
 }
 
 body {
