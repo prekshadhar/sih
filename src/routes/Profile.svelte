@@ -3,7 +3,7 @@
     let emailId = "user@example.com";
     let board = "CBSE";
     let standard = "10th";
-    let assessmentsDone = 5;
+    let assessmentsDone = 0;
   </script>
   
   <div class="max-w-2xl mx-auto mt-8">
