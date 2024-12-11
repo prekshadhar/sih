@@ -1,7 +1,7 @@
 <script>
   import { SvelteComponent } from "svelte/internal";
   import { Link, navigate } from "svelte-routing";
-  import { isLoggedIn, token } from '../store';
+  import { isLoggedIn, token, user } from '/store.js';
   import { onMount } from 'svelte';
 
   const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
@@ -30,7 +30,11 @@
         console.log(isSignUp ? "Sign Up" : "Sign In", result);
         isLoggedIn.set(true);
         token.set(result.token);
-        navigate("/dashboard");
+        user.set({
+          username: result.user.username,
+          email: result.user.email
+        });
+        navigate("/profile");
       } else {
         const errorData = await response.json();
         errorMessage = errorData.message || "An error occurred. Please try again.";
@@ -224,3 +228,4 @@
     -webkit-backdrop-filter: blur(12px);
   }
 </style>
+
