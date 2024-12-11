@@ -13,11 +13,11 @@
   
   <div class="max-w-2xl mx-auto mt-8">
     <h1 class="text-3xl font-bold mb-6">Mitra</h1>
-    <div class="bg-gray-100 p-6 rounded-lg mb-6">
+    <div class="bg-blue-100 p-6 rounded-lg mb-6">
       <h2 class="text-2xl font-semibold mb-4">Review</h2>
       <p>{review}</p>
     </div>
-    <div class="bg-gray-100 p-6 rounded-lg mb-6">
+    <div class="bg-blue-100 p-6 rounded-lg mb-6">
       <h2 class="text-2xl font-semibold mb-4">Roadmap</h2>
       <p>{roadmap}</p>
     </div>

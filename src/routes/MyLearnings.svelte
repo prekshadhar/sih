@@ -17,7 +17,7 @@
     <h1 class="text-3xl font-bold mb-6">My Learnings</h1>
     <div class="space-y-6">
       {#each tests as test}
-        <div class="bg-gray-100 p-6 rounded-lg">
+        <div class="bg-blue-100 p-6 rounded-lg">
           <h2 class="text-2xl font-semibold mb-4">{test.name}</h2>
           <div class="flex space-x-4">
             <button on:click={() => viewReview(test.id)} class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">

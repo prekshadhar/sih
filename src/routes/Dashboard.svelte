@@ -26,7 +26,7 @@
       </div>
       <div class="bg-orange-100 p-4 rounded-lg w-full">
         <h4 class="font-bold">My Learnings</h4>
-        <p class="text-sm">Track your completed courses, revisit materials, and monitor your progress to stay organized and plan your next steps.
+        <p class="text-sm">Track your completed tests, revisit materials, and monitor your progress to stay organized and plan your next steps.
         </p>
       </div>
       <div class="bg-blue-100 p-4 rounded-lg w-full">
