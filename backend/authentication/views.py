@@ -1,18 +1,15 @@
-from django.contrib.auth.models import User  
-
+from django.contrib.auth import get_user_model, authenticate
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from django.contrib.auth import authenticate
 from .serializers import UserSerializer
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-import json
 from django.db import IntegrityError
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
+from rest_framework.authtoken.models import Token
+    
+User = get_user_model()
 
-# Add this new view
 @api_view(['GET'])
 def api_root(request):
     return Response({
@@ -20,24 +17,36 @@ def api_root(request):
         'endpoints': {
             'signup': '/api/auth/signup/',
             'login': '/api/auth/login/',
-            # 'ml_predict': '/api/ml/predict/'
         }
     })
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 @api_view(['POST'])
 def signup(request):
+    logger.info(f"Received signup request: {request.data}")
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
         try:
-            serializer.save()
+            user = serializer.save()
+            logger.info(f"User created successfully: {user.username}")
             return Response({
                 "message": "User created successfully",
                 "user": serializer.data
             }, status=status.HTTP_201_CREATED)
-        except IntegrityError:
+        except IntegrityError as e:
+            logger.error(f"IntegrityError during signup: {str(e)}")
             return Response({
                 "message": "Username or email already exists"
             }, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            logger.error(f"Unexpected error during signup: {str(e)}")
+            return Response({
+                "message": "An unexpected error occurred"
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    logger.error(f"Invalid serializer data: {serializer.errors}")
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
@@ -50,32 +59,21 @@ def login(request):
             "message": "Both email/username and password are required"
         }, status=status.HTTP_400_BAD_REQUEST)
 
-    # Check if the input is an email or username
     try:
         validate_email(email_or_username)
-        # It's an email
-        try:
-            user = User.objects.get(email=email_or_username)
-        except User.DoesNotExist:
-            return Response({
-                "message": "No user found with this email"
-            }, status=status.HTTP_404_NOT_FOUND)
+        user = User.objects.filter(email=email_or_username).first()
     except ValidationError:
-        # It's a username
-        user = None
+        user = User.objects.filter(username=email_or_username).first()
     
-    if not user:
-        user = authenticate(username=email_or_username, password=password)
-    else:
-        user = authenticate(username=user.username, password=password)
-    
-    if user:
+    if user and user.check_password(password):
+        token, _ = Token.objects.get_or_create(user=user)
         return Response({
             "message": "Login successful",
             "user": {
                 "username": user.username,
                 "email": user.email
-            }
+            },
+            "token": token.key
         }, status=status.HTTP_200_OK)
     return Response({
         "message": "Invalid credentials"
