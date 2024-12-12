@@ -1,6 +1,6 @@
 <script>
 	import { Router, Link, Route } from "svelte-routing";
-	import { isLoggedIn } from "./store"; 
+	import { isLoggedIn } from "../store"; 
 	import Navbar from "./components/Navbar.svelte";
 	
 	import Home from "./routes/Home.svelte";
