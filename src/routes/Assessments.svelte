@@ -16,10 +16,11 @@
           <div>
               <label for="field" class="block mb-2 text-lg font-semibold">Choose Field</label>
               <select id="field" bind:value={selectedField} class="w-full px-4 py-3 border rounded-lg text-lg">
-                  <option value="">Choose a field</option>
-                  <option value="Science">Science</option>
-                  <option value="Commerce">Commerce</option>
-                  <option value="Arts">Arts</option>
+                  <option value="">Choose a industry</option>
+                  <option value="Science">IT</option>
+                  <option value="Commerce">Healthcare</option>
+                  <option value="Arts">Finance</option>
+                  <option value="Arts">Education</option>
                   <!-- Add more field options as needed -->
               </select>
           </div>
